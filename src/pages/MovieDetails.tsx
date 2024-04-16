@@ -4,7 +4,7 @@ import { type Movie } from "../types/Movie";
 import Backup from "../assets/backup.jpg";
 import { Link } from "react-router-dom";
 
-const MovieDetails = () => {
+const MovieDetails = ({title}:{title:string}) => {
   const { id } = useParams();
   const [data, setData] = useState<Movie>({} as Movie);
   useEffect(() => {
@@ -19,6 +19,9 @@ const MovieDetails = () => {
     }
     fetchMovie();
   }, [id])
+  useEffect(() =>{
+    document.title = `${title}: ${data.title}`
+  })
   const img = data.poster_path
     ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
     : Backup;

@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const PageNotFound = () => {
+    useEffect(() => {
+        document.title = "Page Not Found";
+    })
   return (
     <main>
       <div className="text-center h-screen flex flex-col items-center justify-center">
